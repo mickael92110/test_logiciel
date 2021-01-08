@@ -39,6 +39,12 @@ def verify_password_letter(password):
 	 return any(chr.isalpha() for chr in password)
 
 
+def verify_password_char_spec(password):
+	for chr in password :
+		if(not(chr.isdigit()) and not(chr.isalpha())):
+			return True
+	return False
+
 
 def add_room(db_path, room_name, room_type):
 	connect = sqlite3.connect(db_path)

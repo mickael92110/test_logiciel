@@ -4,7 +4,7 @@ from quick_tools import verify_room_type
 from quick_tools import verify_password_length
 from quick_tools import verify_password_digit
 from quick_tools import verify_password_letter
-
+from quick_tools import verify_password_char_spec
 
 
 import random
@@ -66,3 +66,14 @@ class QuickToolsTester(unittest.TestCase):
 		self.assertTrue(verify_password_letter('abcabc1234'))
 		self.assertTrue(verify_password_letter('1a2b3c45fs'))
 		self.assertTrue(verify_password_letter('azeù=+:124(4)'))
+
+
+	def test_verify_password_char_spec(self):
+
+		self.assertFalse(verify_password_char_spec('abcdefghi'))
+		self.assertFalse(verify_password_char_spec('1234567890'))
+		self.assertFalse(verify_password_char_spec('abc123def456'))
+
+		self.assertTrue(verify_password_char_spec('abc-def-ghij'))
+		self.assertTrue(verify_password_char_spec('abc=abcdef!=fed'))
+		self.assertTrue(verify_password_char_spec('%$*ab.c1234'))
