@@ -5,7 +5,7 @@ from quick_tools import verify_password_length
 from quick_tools import verify_password_digit
 from quick_tools import verify_password_letter
 from quick_tools import verify_password_char_spec
-
+from quick_tools import verify_password_general
 
 import random
 import string
@@ -77,3 +77,16 @@ class QuickToolsTester(unittest.TestCase):
 		self.assertTrue(verify_password_char_spec('abc-def-ghij'))
 		self.assertTrue(verify_password_char_spec('abc=abcdef!=fed'))
 		self.assertTrue(verify_password_char_spec('%$*ab.c1234'))
+
+
+	def test_verify_password_general(self):
+
+		self.assertFalse(verify_password_general('abcdefghi'))
+		self.assertFalse(verify_password_general('1234567890'))
+		self.assertFalse(verify_password_general('abc123def456'))
+		self.assertFalse(verify_password_general('.:;123&§!456'))
+
+		self.assertTrue(verify_password_general('abc-def-ghij1'))
+		self.assertTrue(verify_password_general('abc=ab9cdef!=fed'))
+		self.assertTrue(verify_password_general('%$*ab.c1234'))
+		self.assertTrue(verify_password_general('534SEFSF,;::,'))

@@ -45,6 +45,10 @@ def verify_password_char_spec(password):
 			return True
 	return False
 
+def verify_password_general(password):
+	return verify_password_digit(password) and verify_password_length(password) and verify_password_letter(password) and verify_password_char_spec(password)
+
+
 
 def add_room(db_path, room_name, room_type):
 	connect = sqlite3.connect(db_path)
