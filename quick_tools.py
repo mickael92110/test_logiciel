@@ -26,6 +26,11 @@ def verify_room_type(room_type):
 
 	return False
 
+def verify_password_length(password):
+	if (len(password) < 8) :
+		return False
+	return True
+
 
 def add_room(db_path, room_name, room_type):
 	connect = sqlite3.connect(db_path)

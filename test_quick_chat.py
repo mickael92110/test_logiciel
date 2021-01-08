@@ -1,6 +1,7 @@
 import unittest
 from quick_tools import verify_room_name
 from quick_tools import verify_room_type
+from quick_tools import verify_password_length
 
 import random
 import string
@@ -30,5 +31,13 @@ class QuickToolsTester(unittest.TestCase):
 		self.assertFalse(verify_room_type('PUBLIC'))
 		self.assertFalse(verify_room_type('public '))
 
+	def test_verify_password_length(self):
 
-	
+		self.assertFalse(verify_password_length('un'))
+		self.assertTrue(verify_password_length('testtest1'))
+
+		self.assertFalse(verify_password_length('publi c'))
+		self.assertTrue(verify_password_length('abc12345'))
+
+		self.assertFalse(verify_password_length('1234567'))
+		self.assertFalse(verify_password_length('public '))
