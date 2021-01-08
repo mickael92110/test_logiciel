@@ -31,6 +31,14 @@ def verify_password_length(password):
 		return False
 	return True
 
+def verify_password_digit(password):
+	 return any(chr.isdigit() for chr in password)
+
+
+def verify_password_letter(password):
+	 return any(chr.isalpha() for chr in password)
+
+
 
 def add_room(db_path, room_name, room_type):
 	connect = sqlite3.connect(db_path)

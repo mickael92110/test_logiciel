@@ -2,6 +2,10 @@ import unittest
 from quick_tools import verify_room_name
 from quick_tools import verify_room_type
 from quick_tools import verify_password_length
+from quick_tools import verify_password_digit
+from quick_tools import verify_password_letter
+
+
 
 import random
 import string
@@ -41,3 +45,24 @@ class QuickToolsTester(unittest.TestCase):
 
 		self.assertFalse(verify_password_length('1234567'))
 		self.assertFalse(verify_password_length('public '))
+
+	def test_verify_password_digit(self):
+
+		self.assertFalse(verify_password_digit('abcdefgh'))
+		self.assertFalse(verify_password_digit('abcdefgh_-'))
+		self.assertFalse(verify_password_digit('abcd efgh'))
+
+		self.assertTrue(verify_password_digit('abcdefg1'))
+		self.assertTrue(verify_password_digit('abc9defg'))
+		self.assertTrue(verify_password_digit('111111111a'))
+
+
+	def test_verify_password_letter(self):
+
+		self.assertFalse(verify_password_letter('12352355'))
+		self.assertFalse(verify_password_letter('&-(§-!+_)-'))
+		self.assertFalse(verify_password_letter('     12£^`$*'))
+
+		self.assertTrue(verify_password_letter('abcabc1234'))
+		self.assertTrue(verify_password_letter('1a2b3c45fs'))
+		self.assertTrue(verify_password_letter('azeù=+:124(4)'))
