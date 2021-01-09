@@ -91,9 +91,14 @@ class QuickToolsTester(unittest.TestCase):
 		self.assertFalse(verify_password_general('abc123def456'))
 		self.assertFalse(verify_password_general('.:;123&§!456'))
 		self.assertFalse(verify_password_general('              '))
+		self.assertFalse(verify_password_general('1a:'))
+		self.assertFalse(verify_password_general('ABCDEFGH1'))
+
 
 
 		self.assertTrue(verify_password_general('abc-def-ghij1'))
 		self.assertTrue(verify_password_general('abc=ab9cdef!=fed'))
 		self.assertTrue(verify_password_general('%$*ab.c1234'))
 		self.assertTrue(verify_password_general('534SEFSF,;::,'))
+		self.assertTrue(verify_password_general('ceci-est-1-test'))
+		self.assertTrue(verify_password_general('è_é-à_ù-0_0'))
