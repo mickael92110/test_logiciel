@@ -21,9 +21,8 @@ def verify_room_name(room_name):
 
 
 def verify_room_type(room_type):
-	if (room_type == 'private') or (room_type =='public'):
+	if (room_type == 'private') or (room_type =='public') or (room_type == 'PRIVATE') or (room_type =='PUBLIC'):
 		return True
-
 	return False
 
 def verify_password_length(password):

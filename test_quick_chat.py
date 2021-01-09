@@ -27,13 +27,18 @@ class QuickToolsTester(unittest.TestCase):
 	def test_verify_room_type(self):
 
 		self.assertFalse(verify_room_type('chat'))
-		self.assertTrue(verify_room_type('private'))
-
 		self.assertFalse(verify_room_type('publi c'))
-		self.assertTrue(verify_room_type('public'))
-
-		self.assertFalse(verify_room_type('PUBLIC'))
+		self.assertFalse(verify_room_type('PUbLIC'))
 		self.assertFalse(verify_room_type('public '))
+
+
+		self.assertTrue(verify_room_type('private'))
+		self.assertTrue(verify_room_type('public'))
+		self.assertTrue(verify_room_type('PRIVATE'))
+		self.assertTrue(verify_room_type('PUBLIC'))
+
+
+
 
 	def test_verify_password_length(self):
 
@@ -85,6 +90,8 @@ class QuickToolsTester(unittest.TestCase):
 		self.assertFalse(verify_password_general('1234567890'))
 		self.assertFalse(verify_password_general('abc123def456'))
 		self.assertFalse(verify_password_general('.:;123&§!456'))
+		self.assertFalse(verify_password_general('              '))
+
 
 		self.assertTrue(verify_password_general('abc-def-ghij1'))
 		self.assertTrue(verify_password_general('abc=ab9cdef!=fed'))
