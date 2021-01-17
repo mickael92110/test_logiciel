@@ -22,7 +22,7 @@ jobs:
       run: |
         python3 -m unittest test_quick_chat.py -v
 
-   - name: Analysing the code with pylint
-         run: |
-           pylint `ls -R|grep .py$|xargs`
+    - name: Analysing the code with pylint
+      run: |
+        pylint `ls -R|grep .py$|xargs`
 
