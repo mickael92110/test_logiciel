@@ -30,8 +30,8 @@ def verify_password_length(password):
 		return False
 	return True
 
-def verify_password_digit(password):
-	 return any(chr.isdigit() for chr in password)
+#def verify_password_digit(password):
+#	 return any(chr.isdigit() for chr in password)
 
 
 def verify_password_letter(password):
