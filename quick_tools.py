@@ -1,7 +1,7 @@
 import sqlite3
 
 def get_rooms(db_path):
-    connect = sqlite3.connect(db_path)
+    	connect = sqlite3.connect(db_path)
 	cursor = connect.cursor()
 
 	sql = 'SELECT room_name FROM Rooms;'
