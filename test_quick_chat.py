@@ -7,6 +7,9 @@ from quick_tools import verify_password_letter
 from quick_tools import verify_password_char_spec
 from quick_tools import verify_password_general
 
+# terminal :
+# python3 -m unittest test_quick_chat.py
+
 import random
 import string
 
