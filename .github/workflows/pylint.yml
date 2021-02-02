@@ -18,9 +18,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install pylint
         
-    - name: test Quick chat
-      run: |
-        python3 -m unittest test_quick_chat.py -v
 
     - name: Analysing the code with pylint
       run: |
