@@ -121,4 +121,4 @@ def create_db(db_path):
 
 # print(get_users(db_path))
 # print(get_rooms(db_path))
-delete_user(db_path,'yann.c')
+# delete_user(db_path,'yann.c')
