@@ -26,7 +26,7 @@ def verify_room_type(room_type):
 	return False
 
 def verify_password_length(password):
-	if (len(password) < 8) :
+	if len(password) < 8 :
 		return False
 	return True
 
