@@ -26,5 +26,5 @@ jobs:
 
     - name: Analysing the code with pylint
       run: |
-        pylint ./* --disable=all --enable=basic 
+        pylint ./* --exit-zero --disable=all --enable=basic 
 
